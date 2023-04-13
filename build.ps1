@@ -71,7 +71,7 @@ Write-Host "Creating ISO..."
 
 $isoName = "Bypass11_build_$currentDate.iso"
 
-cmd.exe /c "oscdimg.exe -h -m -o -u2 -udfver102 -bootdata:2#p0,e,bDVD\boot\etfsboot.com#pEF,e,bDVD\efi\microsoft\boot\efisys.bin -lBypass11 $isoName"
+cmd.exe /c "oscdimg.exe -h -m -o -u2 -udfver102 -bootdata:2#p0,e,bDVD\boot\etfsboot.com#pEF,e,bDVD\efi\microsoft\boot\efisys.bin -lBypass11 DVD $isoName"
 
 if (Test-Path $isoName) {
     $hash = (Get-FileHash $isoName -Algorithm SHA256).Hash.ToLower()
