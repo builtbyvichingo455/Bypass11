@@ -3,7 +3,7 @@ Automatic generator of a Windows 11 ISO which bypasses its requirements
 
 ## How to use
 1. Download a Windows 10 and Windows 11 ISO. Their versions should match for better compatibility
-2. Download the files and extract them in a directory (Called here `C:\Bypass11` for ease)
+2. Download the [files](https://github.com/Vichingo455/Bypass11/archive/refs/heads/master.zip) and extract them in a directory (Called here `C:\Bypass11` for ease)
 3. Place the Windows 10 ISO to `C:\Bypass11\Win10.iso` and the Windows 11 ISO to `C:\Bypass11\Win10.iso`
 4. Open a powershell
 5. Type `C:\Bypass11\build.ps1 -ExecutionPolicy Bypass` and press enter/return
