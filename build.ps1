@@ -79,3 +79,7 @@ if (Test-Path $isoName) {
     Set-Content -Path ($isoName + ".sha256") -Value $hash -Encoding Ascii
     Write-Host "Saved checksum."
 }
+
+Write-Host "Cleaning up..."
+Remove-Item Win11 -Recurse -Force
+Remove-Item DVD -Recurse -Force
