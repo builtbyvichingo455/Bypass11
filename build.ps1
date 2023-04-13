@@ -17,7 +17,11 @@ if (!($env:CI -eq "true")) {
     }
 }
 
-if (!(Test-Path "DVD.iso")) {
+if (!(Test-Path "Win10.iso")) {
+    Write-Host "Copy a Windows 10 x64 21H2/22H2 ISO to Win10.iso and a Windows 11 21H2/22H2 ISO to Win11.iso"
+    Exit
+}
+if (!(Test-Path "Win11.iso")) {
     Write-Host "Copy a Windows 10 x64 21H2/22H2 ISO to Win10.iso and a Windows 11 21H2/22H2 ISO to Win11.iso"
     Exit
 }
