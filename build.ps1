@@ -39,11 +39,6 @@ Write-Host "Extracting ISO..."
 .\7z.exe x Win10.iso -oDVD
 .\7z.exe x Win11.iso -oWin11
 
-if (Test-Path .\cache.wim) {
-    Remove-Item .\DVD\sources\install.esd -Force
-    Copy-Item .\cache.wim .\DVD\sources\install.wim -Force
-}
-
 Write-Host "Patching..."
 If (Test-Path .\Win11\sources\install.esd) {
     if (Test-Path .\DVD\sources\install.esd) {
@@ -52,20 +47,17 @@ If (Test-Path .\Win11\sources\install.esd) {
     if (Test-Path .\DVD\sources\install.wim) {
         Remove-Item .\DVD\sources\install.wim -Force
     }
-    Copy-Item .\Win11\sources\install.esd .\DVD\sources\install.esd
+    Copy-Item .\Win11\sources\install.esd .\DVD\sources\install.esd -Force
 }
 
-If (Test-Path .\Win11\sources\install.esd) {
+If (Test-Path .\Win11\sources\install.wim) {
     if (Test-Path .\DVD\sources\install.esd) {
         Remove-Item .\DVD\sources\install.esd -Force
     }
     if (Test-Path .\DVD\sources\install.wim) {
         Remove-Item .\DVD\sources\install.wim -Force
     }
-    Copy-Item .\Win11\sources\install.esd .\DVD\sources\install.esd
-}
-
-if (Test-Path .\DVD\sources\install.wim) {
+    Copy-Item .\Win11\sources\install.wim .\DVD\sources\install.wim -Force
     Write-Host "Converting WIM to ESD..."
     Export-WindowsImage -SourceImagePath .\DVD\sources\install.wim -SourceIndex 1 -DestinationImagePath .\DVD\sources\install.esd -CompressionType max
     Remove-Item .\DVD\sources\install.wim -Force
