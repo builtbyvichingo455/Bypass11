@@ -26,7 +26,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: "Bypass_build_*"
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ github.token }}
           body: |
             This build is automatically generated through GitHub Actions and is English only. To get a different language ISO, please build this yourself.
             This commit was very kindly contributed by @${{ github.triggering_actor }}.
