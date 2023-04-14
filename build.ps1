@@ -18,12 +18,12 @@ if (!($env:CI -eq "true")) {
 }
 
 if (!(Test-Path "Win10.iso")) {
-    Write-Host "Copy a Windows 10 x64 21H2/22H2 ISO to Win10.iso and a Windows 11 21H2/22H2 ISO to Win11.iso"
-    Exit
+    Write-Host "Windows 10 ISO not found. Downloading one..."
+    .\aria2\aria2c.exe "https://archive.org/download/win-10-full-collection/windows 10 ISOs/Win10_22H2_English_x64.iso" -o "Win10.iso" -x16 -s16
 }
 if (!(Test-Path "Win11.iso")) {
-    Write-Host "Copy a Windows 10 x64 21H2/22H2 ISO to Win10.iso and a Windows 11 21H2/22H2 ISO to Win11.iso"
-    Exit
+    Write-Host "Windows 11 ISO not found. Downloading one..."
+    .\aria2\aria2c.exe "https://archive.org/download/win-10-full-collection/windows 10 ISOs/Win11_22H2_English_x64.iso" -o "Win11.iso" -x16 -s16
 }
 
 $currentDate = Get-Date -Format "yy-MM-dd"
